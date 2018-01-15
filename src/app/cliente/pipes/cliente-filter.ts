@@ -1,10 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { ClienteComponent } from 'app/cliente/cliente.component';
 @Pipe({
     name: 'filtroPorCliente'
 })
 export class FiltroPorCliente implements PipeTransform {
 
-    transform(clientes, digitado): any {
+    transform(clientes: ClienteComponent[], digitado: string): ClienteComponent[] {
         console.log("Clientes: ", clientes);
         console.log("Digitado: ", digitado);
         digitado = digitado.toLowerCase();

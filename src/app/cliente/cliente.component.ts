@@ -14,10 +14,10 @@ export class ClienteComponent {
   private cliente: ClienteComponent;
   public teste: '';
   @Input() fullName: string;
- 
-
+  
   constructor(private clienteService: ClienteService) { }
 
+  //enquanto nao tem os endpoints, vamos de mock mesmo
   public clientes: any[''] = {
     "objects": [
       {
