@@ -1,28 +1,26 @@
-import {Injectable} from '@angular/core';
-import {Http, Headers,RequestOptions, Response} from '@angular/http';
+import { Injectable, Component, Input } from '@angular/core';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { ClienteComponent } from './cliente.component';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
- 
+
 @Injectable()
 export class ClienteService {
 
-    private clientes: Object[] = [];
-    private nome: String;
-	private apiUrl = 'https://dummy-blue-hunter.mybluemix.net/user/by-name/';  // URL para web api
+	@Input() private nome: string;
+	private clientes: Object[] = [];
+	private cliente: ClienteComponent;
+	private apiUrl = 'https://dummy-blue-hunter.mybluemix.net/user/by-name/' + this.nome; 
 	
-	/**
-	* Método construtor
-	* @param http: Http
-	*/
 	constructor(private http: Http) { }
- 
-	/**
-	* Listando os clientes
-	*/
-	getClientes(){
-	 	return this.http.get(this.apiUrl)
-		 	.map((res:Response) => res.json());
+	
+	getClientes() {
+		return this.http.get(this.apiUrl)
+			.map((res: Response) => res.json(),
+			console.log(this.apiUrl));
 	}
+
+
 }

@@ -6,11 +6,17 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import 'rxjs/add/operator/map';
+import { FiltroPorCliente } from 'app/cliente/pipes/cliente-filter';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClienteComponent
+    ClienteComponent,
+    FiltroPorCliente
+  ],
+  exports: [
+    ClienteComponent,
+    FiltroPorCliente
   ],
   imports: [
     BrowserModule,

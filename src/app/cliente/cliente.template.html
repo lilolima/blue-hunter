@@ -1,0 +1,41 @@
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="jumbotron text-center">
+            <h1>Blue Hunter</h1>
+            <form>
+                <div class="input-group">
+                    <input type="text" class="form-control" size="50" #textoProcurado (keyup)="0" placeholder="Busque por um cliente" required>
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-2 sidenav">
+
+        </div>
+        <div class="col-sm-8 text-left">
+
+            <table class="table">
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Username</th>
+                </tr>
+                <tr *ngFor="let cliente of clientes.objects | filtroPorCliente:textoProcurado.value">
+                    <td title="'Nome'">{{cliente.fullName}}</td>
+                    <td title="'Idade'">{{cliente.age}}</td>
+                    <td title="'Email'">{{cliente.email}}</td>
+                    <td title="'Tel'">{{cliente.phone}}</td>
+                    <td title="'Username'">{{cliente.username}}</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+</div>
+<!--fecha container-->
